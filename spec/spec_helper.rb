@@ -139,6 +139,14 @@ Spork.prefork do
     ActiveRecord::Base.default_timezone = old_zone
   end
 
+  def with_default_locale(locale)
+      original_default_locale = I18n.default_locale
+      I18n.default_locale = locale
+      yield
+  ensure
+      I18n.default_locale = original_default_locale
+  end
+
   def load_test_categories
       PublicBodyCategories.add(:en, [
           "Local and regional",

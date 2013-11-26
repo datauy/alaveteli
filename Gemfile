@@ -44,8 +44,8 @@ gem 'zip'
 gem 'fast_gettext'
 gem 'gettext_i18n_rails'
 gem 'gettext'
-# Use until this PR is merged: https://github.com/svenfuchs/globalize3/pull/191
-gem 'globalize3', :git => 'git://github.com/henare/globalize3.git', :branch => 'not-null-empty-attributes'
+
+gem 'globalize3', :git => 'git://github.com/mysociety/globalize.git', :branch => 'henare'
 gem 'locale'
 gem 'routing-filter'
 gem 'unicode'
