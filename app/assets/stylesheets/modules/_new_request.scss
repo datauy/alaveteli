@@ -5,7 +5,10 @@
     @include grid-column(8, true);
 }
 .new_request-body{
-    @include grid-column(8, false, false, false, false, 4, false);
+    @include grid-column(12);
+    @media (min-width: 50em){
+        @include grid-column(8, false, false, false, false, 4, false);
+    }
     textarea{
         min-height: 20em;
     }
