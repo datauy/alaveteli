@@ -11,11 +11,42 @@
     }
 }
 .new_request-advice{
-    @include grid-column(4, false, false, false, 8, false, false);
+    @include grid-column(12);
+    .advice:before{ display:none; }
+    @media (min-width: 50em){
+        @include grid-column(4, false, false, false, 8, false, false);
+        .advice:before{ display:block; }
+    }
 }
-
 .form_button{
     input{
         @include button($button-lrg, $c-success, false, false, false, true);
+    }
+}
+// Preview
+#preview_form{
+    .request-thread{
+        @include grid-column(12);
+        @media (min-width: 28.75em){
+            @include grid-column(12);
+        }
+        @media (min-width: 50em){
+            @include grid-column(8, true, false, false, false, 4);
+        }
+        margin-bottom: 0;
+    }
+    .form_button{
+        @include grid-column(12);
+        @media (min-width: 50em){
+            @include grid-column(8);
+            padding:0;
+        }
+        div{
+            @include grid-column(6);
+        }
+        input{
+            &.submit{ @include button($button-med, $c-success, false, true, false, true); }
+            &.edit{ @include button($button-med, $c-requests, false, true, false, true); }
+        }
     }
 }

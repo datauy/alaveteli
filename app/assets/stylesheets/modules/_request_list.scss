@@ -74,7 +74,6 @@
 
         }
     }
-
     .request_preview{
         display: none;
 
@@ -90,6 +89,23 @@
             p{
                 padding: 0.625em;
             }
+        }
+    }
+
+    &.slim{
+        .request_info{
+            @media (min-width: 50em){
+                @include grid-column(8);
+            }
+        }
+        .request_status{
+            @media (min-width: 50em){
+                @include grid-column(4);
+                padding-left: 0;
+            }
+        }
+        .request_preview{
+            display: none;
         }
     }
 

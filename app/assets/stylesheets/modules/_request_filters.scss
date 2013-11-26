@@ -1,36 +1,17 @@
 .request_filters{
     clear: both;
+
     form{
         @include grid-row;
     }
     .list-filter-item{
         @include grid-column(12);
-        @media (min-width: 21.875em){
-            @include grid-column(6);
-        }
-        @media (min-width: 37.5em){
-            @include grid-column(4);
-        }
-        @media (min-width: 46.875em){
-            @include grid-column(3);
-        }
 
         &.submit{
             @include grid-column(12);
-            @media (min-width: 37.5em){
-                @include grid-column(4);
-            }
-            @media (min-width: 46.875em){
-                @include grid-column(1);
-            }
             padding-top: 1em;
             input{
                 @include button($button-med, $c-success, 0, true, false, true);
-                background-image: url(/assets/form_icons/search.png);
-                background-repeat: no-repeat;
-                background-size: auto 60%;
-                text-indent: -9999px;
-                background-position: center center;
             }
         }
 
@@ -43,10 +24,6 @@
 
         &.search-query{
             @include grid-column(12);
-
-            @media (min-width: 46.875em){
-                @include grid-column(5);
-            }
             input{
                 background-image: url(/assets/form_icons/search.png);
                 padding-left: 2em
@@ -76,6 +53,46 @@
             background-position: 0.5em center;
             background-repeat: no-repeat;
             background-size: 1em auto;
+        }
+    }
+
+    // To make the filters responsively go across the page instead of in a single column.
+    &.full{
+        .list-filter-item{
+            @media (min-width: 21.875em){
+                @include grid-column(6);
+            }
+            @media (min-width: 37.5em){
+                @include grid-column(4);
+            }
+            @media (min-width: 46.875em){
+                @include grid-column(3);
+            }
+
+            &.submit{
+                @media (min-width: 37.5em){
+                    @include grid-column(4);
+                }
+                @media (min-width: 46.875em){
+                    @include grid-column(1);
+                    input{
+                        background-image: url(/assets/form_icons/search.png);
+                        background-repeat: no-repeat;
+                        background-size: auto 60%;
+                        text-indent: -9999px;
+                        background-position: center center;
+                    }
+                }
+
+            }
+            &.search-query{
+                @media (min-width: 46.875em){
+                    @include grid-column(5);
+                }
+            }
+            &.status_filters{
+                @include grid-column(12);
+            }
         }
     }
 }
