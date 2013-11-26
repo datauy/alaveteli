@@ -1,0 +1,35 @@
+.authority_list{
+    .results_block{ list-style: none; }
+    @include grid-column(8);
+
+    li{
+        @include grid-row();
+        border-top: 2px solid #d7c5c1;
+        margin-top: 1.5em;
+    }
+    .body_name{
+        @include grid-column(8);
+        clear:both;
+
+    }
+    .body_requests_total{
+        @include grid-column( 4 );
+        // @include grid-column( 4, false, false, 0, 8 );
+        text-align: center;
+        padding-top: 1em;
+        strong{
+            display: block;
+            font-size: 1.5em;
+            line-height: 1;
+        }
+    }
+    .body_desc{
+        @include grid-column(8);
+        //@include grid-column( 8, false, false, 0, 0, 4 );
+    }
+
+    .authority_list_actions{
+        display: block;
+        clear:both;
+    }
+}

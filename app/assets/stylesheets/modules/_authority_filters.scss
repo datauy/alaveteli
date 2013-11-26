@@ -1,0 +1,6 @@
+.authority_filters{
+    @include grid-column(4);
+    .list-filter-item.submit input{
+        @include button($button-med, $c-success, false, true, false, true);
+    }
+}
