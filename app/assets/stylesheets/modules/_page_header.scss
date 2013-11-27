@@ -49,13 +49,15 @@
                 display:block;
             }
         }
-
-        // Show menu items when menu is targeted
-        .login-block,
-        .main_menu{
-            display:block;
-            clear:both;
+        @media( max-width: $main_menu-mobile_menu_cutoff ){
+            // Show menu items when menu is targeted
+            .login-block,
+            .main_menu{
+                display:block;
+                clear:both;
+            }
         }
+
 
     }
 
@@ -141,6 +143,10 @@
 
 }
 .login-block{
+    @media( min-width: $main_menu-mobile_menu_cutoff ){
+        width: 50%;
+    }
+
     p{
         padding: 0.5em 1em;
         margin:0;
@@ -149,6 +155,7 @@
         display:block;
         font-weight: bold;
         padding: 0.5em 1em;
+        color: #fff;
     }
     @media( min-width: $main_menu-mobile_menu_cutoff ){
         a{
@@ -171,7 +178,9 @@
 //     Style
 // ----------------------------------------------
 
-
+.page_header{
+    background-color: mix($main_menu-bg, $body-font-color, 70%);
+}
 
 .main_menu{
     background-color: $main_menu-bg;
@@ -255,7 +264,7 @@
 
 }
 
-.login-block{
+div.login-block{
     background: $c-users;
     p{
         color: transparentize( $main_menu-link_text, 0.5 );

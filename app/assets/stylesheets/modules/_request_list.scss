@@ -132,9 +132,14 @@
         }
     }
 
-    .status_waiting_response_overdue,
-    .status_waiting_response_very_overdue,
-    .status_gone_postal
+    .status_waiting_response,
+    .status_waiting_clarification,
+    .status_waiting_classification,
+    .status_gone_postal,
+    .status_internal_review,
+    .status_error_message,
+    .status_user_withdrawn,
+    .status_waiting_response_overdue
     {
         .request_info,
         .request_status,
@@ -148,8 +153,12 @@
         }
     }
 
-    .status_unsuccessful,
-    .status_not_held
+    .status_not_held,
+    .status_rejected,
+    .status_requires_admin,
+    .status_attention_requested,
+    .status_vexatious,
+    .status_waiting_response_very_overdue
     {
         .request_info,
         .request_status,

@@ -1,0 +1,31 @@
+.request-user_actions{
+    clear:both;
+    @include grid-column(12);
+
+    @media( min-width: 50em){
+        @include grid-column(8, true, false, 3);
+    }
+
+
+    .request-interactions-getupdates{
+        @include button;
+        width:100%;
+        font-weight: normal;
+        strong{
+            display:block;
+            font-weight: bold;
+        }
+    }
+
+    &.public{
+
+    }
+
+    &.user{
+
+    }
+
+    &.authority{
+
+    }
+}

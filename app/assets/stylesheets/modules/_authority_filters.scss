@@ -1,5 +1,8 @@
 .authority_filters{
-    @include grid-column(4);
+    @include grid-column(12);
+    @media (min-width: 46.875em){
+        @include grid-column(4);
+    }
     .list-filter-item.submit input{
         @include button($button-med, $c-success, false, true, false, true);
     }

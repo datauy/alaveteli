@@ -1,0 +1,124 @@
+.request_status{
+
+    i{
+        display: block;
+        margin: auto;
+        width: 20px;
+        height: 20px;
+        background-size: 100% 100%;
+        background-position: center center;
+        background-repeat: no-repeat;
+        background-color: $c-requests;
+        border-radius: 50%;
+    }
+
+    // Successful
+    &.status_successful,
+    &.status_partially_successful{
+        i{
+            background-color: $c-success;
+        }
+        color: $c-success;
+    }
+
+    // Pending
+    &.status_waiting_response,
+    &.status_waiting_clarification,
+    &.status_waiting_classification,
+    &.status_gone_postal,
+    &.status_internal_review,
+    &.status_error_message,
+    &.status_user_withdrawn,
+    &.status_waiting_response_overdue
+    {
+        i{
+            background-color: $c-pending;
+        }
+        color: c-pending;
+    }
+
+    // Unsuccessful
+    &.status_not_held,
+    &.status_rejected,
+    &.status_requires_admin,
+    &.status_attention_requested,
+    &.status_vexatious,
+    &.status_waiting_response_very_overdue
+    {
+        i{
+            background-color: $c-failure;
+        }
+        color: c-failure;
+    }
+
+
+
+    &.status_waiting_response i
+    {
+        background-image: url('/assets/status_icons/waiting.png');
+    }
+    &.status_waiting_clarification i
+    {
+        background-image: url('/assets/status_icons/waiting.png');
+    }
+    &.status_waiting_classification i
+    {
+        background-image: url('/assets/status_icons/classification.png');
+    }
+    &.status_gone_postal i
+    {
+        background-image: url('/assets/status_icons/postal.png');
+    }
+    &.status_not_held i
+    {
+        background-image: url('/assets/status_icons/notheld.png');
+    }
+    &.status_rejected i
+    {
+        background-image: url('/assets/status_icons/refused.png');
+    }
+    &.status_successful i
+    {
+        background-image: url('/assets/status_icons/successful.png');
+    }
+    &.status_partially_successful i
+    {
+        background-image: url('/assets/status_icons/partialysuccessfull.png');
+    }
+    &.status_internal_review i
+    {
+        background-image: url('/assets/status_icons/review.png');
+    }
+    &.status_error_message i
+    {
+        background-image: url('/assets/status_icons/delivery_error.png');
+    }
+    &.status_requires_admin i
+    {
+        background-image: url('/assets/status_icons/reported.png');
+    }
+    &.status_user_withdrawn i
+    {
+        background-image: url('/assets/status_icons/withdrawn.png');
+    }
+    &.status_attention_requested i
+    {
+        background-image: url('/assets/status_icons/reported.png');
+    }
+    &.status_vexatious i
+    {
+        background-image: url('/assets/status_icons/locked.png');
+    }
+    &.status_not_foi i
+    {
+        background-image: url('/assets/status_icons/unusual.png');
+    }
+    &.status_waiting_response_very_overdue i
+    {
+        background-image: url('/assets/status_icons/overdue.png');
+    }
+    &.status_waiting_response_overdue i
+    {
+        background-image: url('/assets/status_icons/delayed.png');
+    }
+}

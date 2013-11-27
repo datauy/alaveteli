@@ -24,12 +24,32 @@
         font-size: 0.875em;
         text-align: right;
         padding-bottom: 1.5em;
+        font-weight: normal;
+        color: $c-users;
+
         @media (min-width: 28.75em){
             // float:right;
             padding-left: 2em;
         }
         strong{
             display:block;
+        }
+        .link_to_this{
+            display: block;
+            float: right;
+            width: 20px;
+            height: 20px;
+            color:transparent;
+            background-color: $c-users;
+            background-size: 80% 80%;
+            background-position: center center;
+            background-repeat: no-repeat;
+            border-radius: 50%;
+            margin-left: 1em;
+            margin-top: 0.2em;
+            overflow: hidden;
+            text-indent: -500px;
+            background-image: url('/assets/status_icons/link.png');
         }
     }
 }
