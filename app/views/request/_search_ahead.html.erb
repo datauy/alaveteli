@@ -1,5 +1,5 @@
-<div id="request_search_ahead_results">
-  <% if !@xapian_requests.nil? %>
+<% if !@xapian_requests.nil? %>
+  <div id="request_search_ahead_results">
     <% if @xapian_requests.results.size > 0 %>
       <h3><%= _("Possibly related requests:") %></h3> 
     <% end %>
@@ -10,5 +10,5 @@
     <p>
         <a id="body-site-search-link"><%= _("Or search in their website for this information.") %></a>
     </p>
-  <% end %>
-</div>
+  </div>
+<% end %>
