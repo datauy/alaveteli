@@ -1,14 +1,14 @@
 <% if !@xapian_requests.nil? %>
   <div id="request_search_ahead_results">
     <% if @xapian_requests.results.size > 0 %>
-      <h3><%= _("Possibly related requests:") %></h3> 
+      <h2><%= _("Possible duplicate requests") %></h2>
     <% end %>
     <% for result in @xapian_requests.results %>
       <%= render :partial => 'request/request_listing_short_via_event', :locals => { :event => result[:model], :info_request => result[:model].info_request } %>
     <% end %>
 
     <p>
-        <a id="body-site-search-link"><%= _("Or search in their website for this information.") %></a>
+        <a id="body-site-search-link"><%= _("Or search their website for this information.") %></a>
     </p>
   </div>
 <% end %>
