@@ -23,7 +23,7 @@
 }
 
 .new_info_request{
- @include grid-row($behavior: nest);
+ @include grid-row();
 }
 
 #authority_preview {
@@ -68,7 +68,7 @@
 }
 /* /new/[body_name] page */
 #request_header {
-  @include grid-row;
+  @include grid-row($behavior: nest);
 
   /* Restrict width of form elements on wide screens */
     #request_header_body, #request_header_subject, #typeahead_response {
@@ -90,12 +90,15 @@
   }
 }
 
+.request_body {
+  @include grid-row($behavior: nest);
+}
+
 /* Advice sits on right hand side */
 #request_advice, .preview-advice {
-
   @include grid-column(12);
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    @include grid-column($columns:4, $push: 8);
+    @include grid-column($columns:4, $push:8, $last-column:true);
     @include ie8{
       padding-left: 0.9375em;
     }
@@ -108,7 +111,7 @@
 #request_form {
   @include grid-column(12);
   @include respond-min( $main_menu-mobile_menu_cutoff ){
-    @include grid-column($columns:8, $pull: 4);
+    @include grid-column($columns:8, $pull:4);
     @include ie8{
       padding-right: 0.9375em;
     }
@@ -122,11 +125,6 @@
 /* Message preview */
 .message-preview {
   @include grid-row($behavior: nest);
-}
-
-
-#preview_form {
-  @include grid-column(12);
 }
 
 .preview-pane {
