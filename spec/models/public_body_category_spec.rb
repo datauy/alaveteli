@@ -40,6 +40,7 @@ describe PublicBodyCategory do
                 :public_body_heading_id => headings[1].id).
                     first.
                     category_display_order.should eq 1
+
         end
     end
 

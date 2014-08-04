@@ -56,6 +56,30 @@ class PublicBodyCategory < ActiveRecord::Base
         CategoryAndHeadingMigrator.add_categories_and_headings_from_list(locale, data_list)
     end
 
+    def add_to_heading(heading)
+        if self.public_body_headings.include?(heading)
+            # we already have this, stop
+            return
+        end
+
+        # find the last display_order for this heading
+        last_link = PublicBodyCategoryLink.where(
+            :public_body_heading_id => heading.id
+        ).order(:category_display_order).last
+
+        if last_link
+            display_order = last_link.category_display_order + 1
+        else
+            display_order = 1
+        end
+
+        heading_link = PublicBodyCategoryLink.create(
+            :public_body_category_id => self.id,
+            :public_body_heading_id => heading.id,
+            :category_display_order => display_order
+        )
+    end
+
     # Convenience methods for creating/editing translations via forms
     def find_translation_by_locale(locale)
         translations.find_by_locale(locale)
