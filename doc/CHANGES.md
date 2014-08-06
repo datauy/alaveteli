@@ -114,6 +114,7 @@ candidate:
   described in http://alaveteli.org/docs/installing/manual_install/#generate-alaveteli-service
 * This release includes an update to the commonlib submodule - you
   should be warned about this when running rails-post-deploy.
+* Public body categories will now be stored in the database rather than being read directly from the `lib/public_body_categories_LOCALE` files - on first run, the contents of the files will be automatically imported into the database and all further changes will need to be made via the administrative interface.
 
 # Version 0.18
 
