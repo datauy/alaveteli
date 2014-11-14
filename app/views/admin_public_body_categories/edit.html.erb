@@ -18,13 +18,11 @@
     </div>
 </div>
 
-<% if @tagged_public_bodies.empty? %>
-    <div class="row">
-        <div class="span8">
-        <%= form_tag(admin_category_path(@category), :method => 'delete', :class => "form form-inline") do %>
-         <%= hidden_field_tag(:public_body_id, { :value => @category.id } ) %>
-         <%= submit_tag "Destroy #{@category.title}", :title => @category.title, :class => "btn btn-danger" %> (this is permanent!)
-        <% end %>
-        </div>
+<div class="row">
+    <div class="span8">
+    <%= form_tag(admin_category_path(@category), :method => 'delete', :class => "form form-inline") do %>
+     <%= hidden_field_tag(:public_body_id, { :value => @category.id } ) %>
+     <%= submit_tag "Destroy #{@category.title}", :title => @category.title, :class => "btn btn-danger" %> (this is permanent!)
+    <% end %>
     </div>
-<% end %>
+</div>
