@@ -41,6 +41,9 @@ Alaveteli::Application.routes.draw do
     match '/new/:url_name' => 'request#new', :as => :new_request_to_body
     match '/new_batch' => 'request#new_batch', :as => :new_batch
 
+    match '/new_survey_request' => 'survey#new', :as => :new_survey_request
+    match '/new_survey_request/:url_name' => 'survey#new_request_for_survey', :as => :new_survey_request_to_body
+
     match '/request/search_ahead' => 'request#search_typeahead', :as => :search_ahead
 
     match '/request/:url_title' => 'request#show', :as => :show_request

@@ -12,6 +12,7 @@ MySociety::Config.load_default
 
 # TODO: Make this return different values depending on the current rails environment
 
+
 module AlaveteliConfiguration
     if !const_defined?(:DEFAULTS)
 
@@ -31,6 +32,7 @@ module AlaveteliConfiguration
             :DISABLE_EMERGENCY_USER => false,
             :DOMAIN => 'localhost:3000',
             :DONATION_URL => '',
+            :EMAIL_FOR_CONTROL_BODY => 'controlbody@example.org',
             :EXCEPTION_NOTIFICATIONS_FROM => '',
             :EXCEPTION_NOTIFICATIONS_TO => '',
             :FORCE_REGISTRATION_ON_NEW_REQUEST => false,
@@ -45,12 +47,14 @@ module AlaveteliConfiguration
             :INCOMING_EMAIL_PREFIX => 'foi+',
             :INCOMING_EMAIL_SECRET => 'dummysecret',
             :ISO_COUNTRY_CODE => 'GB',
+            :KEY_FOR_CONTROL_BODY => 'personalkey',
             :MINIMUM_REQUESTS_FOR_STATISTICS => 100,
             :MAX_REQUESTS_PER_USER_PER_DAY => 6,
             :MTA_LOG_PATH => '/var/log/exim4/exim-mainlog-*',
             :MTA_LOG_TYPE => 'exim',
             :NEW_RESPONSE_REMINDER_AFTER_DAYS => [3, 10, 24],
             :OVERRIDE_ALL_PUBLIC_BODY_REQUEST_EMAILS => '',
+            :PASSWORD_FOR_CONTROL_BODY => 'password',
             :PUBLIC_BODY_STATISTICS_PAGE => false,
             :PUBLIC_BODY_LIST_FALLBACK_TO_DEFAULT_LOCALE => false,
             :RAW_EMAILS_LOCATION => 'files/raw_emails',
@@ -89,4 +93,3 @@ module AlaveteliConfiguration
     end
   end
 end
-

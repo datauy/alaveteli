@@ -266,6 +266,7 @@ class ApplicationController < ActionController::Base
     # the session, and when the GET redirect with "?post_redirect=1" happens,
     # load them in.
     def do_post_redirect(post_redirect)
+
         uri = post_redirect.uri
 
         session[:post_redirect_token] = post_redirect.token
@@ -455,5 +456,3 @@ class ApplicationController < ActionController::Base
     # Site-wide access to configuration settings
     include ConfigHelper
 end
-
-
