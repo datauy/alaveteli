@@ -305,13 +305,13 @@ class SurveyController < ApplicationController
         # end
 
         # First time we get to the page, just display it
-        if params[:submitted_new_request].nil? || params[:reedit]
-            if user_exceeded_limit
-                render :template => 'user/rate_limited'
-                return
-            end
-            return render_new_compose(batch=false)
-        end
+        # if params[:submitted_new_request].nil? || params[:reedit]
+        #     if user_exceeded_limit
+        #         render :template => 'user/rate_limited'
+        #         return
+        #     end
+        #     return render_new_compose(batch=false)
+        # end
         # Check we have :public_body_id - spammers seem to be using :public_body
         # erroneously instead
         if params[:info_request][:public_body_id].blank?
