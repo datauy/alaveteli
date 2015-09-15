@@ -81,6 +81,5 @@ end
 group :debug do
   gem 'ruby-debug', :platforms => :ruby_18
   gem 'debugger', :platforms => :ruby_19
-  gem 'byebug', :platforms => :ruby_20
   gem 'annotate'
 end
