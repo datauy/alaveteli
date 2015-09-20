@@ -407,10 +407,10 @@ class SurveyController < ApplicationController
 
     def new_request_for_survey
 
-        # Check for the right key to
-        if !(params[:key] == AlaveteliConfiguration::key_for_control_body)
-          redirect_to frontpage_path and return
-        end
+        # # Check for the right key to
+        # if !(params[:key] == AlaveteliConfiguration::key_for_control_body)
+        #   redirect_to frontpage_path and return
+        # end
 
         # All new requests are of normal_sort
         if !params[:outgoing_message].nil?
@@ -465,8 +465,6 @@ class SurveyController < ApplicationController
         if params[:info_request][:public_body_id].blank?
           redirect_to frontpage_path and return
         end
-
-
 
         # See if the exact same request has already been submitted
         # TODO: this check should theoretically be a validation rule in the
