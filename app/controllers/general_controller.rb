@@ -11,8 +11,31 @@ class GeneralController < ApplicationController
 
     # New, improved front page!
     def frontpage
+
+        if AlaveteliConfiguration::blog_feed.empty?
+            raise ActiveRecord::RecordNotFound.new("Page not enabled")
+        end
+        
         medium_cache
         @locale = self.locale_from_params()
+
+
+        @feed_autodetect = []
+        @feed_url = AlaveteliConfiguration::blog_feed
+        separator = @feed_url.include?('?') ? '&' : '?'
+        @feed_url = "#{@feed_url}#{separator}lang=#{self.locale_from_params()}"
+        @blog_items = []
+        if not @feed_url.empty?
+            content = quietly_try_to_open(@feed_url)
+            if !content.empty?
+                @data = XmlSimple.xml_in(content)
+                @channel = @data['channel'][0]
+                @blog_items = @channel.fetch('item') { [] }
+                @feed_autodetect = [{:url => @feed_url, :title => "#{site_name} blog"}]
+            end
+        end
+
+        @featured_requests = InfoRequest.all(limit: 5)
     end
 
     # Display blog entries
@@ -185,4 +208,3 @@ class GeneralController < ApplicationController
         end
     end
 end
-
