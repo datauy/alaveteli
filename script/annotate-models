@@ -1,4 +1,6 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
+
 #
 # annotates the models in app/ with schema information
 

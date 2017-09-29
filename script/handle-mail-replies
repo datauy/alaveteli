@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 
 cd "`dirname "${BASH_SOURCE[0]}"`"
 exec bundle exec ./handle-mail-replies.rb "$@"

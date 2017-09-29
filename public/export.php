@@ -16,8 +16,12 @@
     or die('Could not connect: ' . pg_last_error());
 
     //GET ALL requests matching filters
+<<<<<<< HEAD
     $queryAllRequest = "SELECT i.id, i.title, i.created_at, i.updated_at, i.described_state, i.last_public_response_at, 
 			u.name as solicitante, p.name as organismo, 'http://quesabes.org/request/'||i.url_title as url 
+=======
+    $queryAllRequest = "SELECT i.id, i.title, i.created_at, i.updated_at, i.described_state, i.last_public_response_at, u.name as solicitante, p.name as organismo 
+>>>>>>> 2968c3d0c96ca93ece4f26ca2cf05448e2859a5e
 			FROM info_requests i, users u, public_bodies p 
 			where i.user_id = u.id and i.public_body_id = p.id and i.id ";
 
@@ -34,6 +38,7 @@
     }
 
     if(isset($_GET['query']) && $_GET['query']!=""){
+<<<<<<< HEAD
 	$queryArray = explode("+",$_GET['query']);
 	$query = "";
 	if(count($queryArray)>1){
@@ -60,6 +65,24 @@
 			      )";
 	$queryAllRequest .= " or i.id in (select c.info_request_id from comments c 
 			      where lower(c.body) like '%".strtolower($query)."%'
+=======
+	$queryAllRequest .= " and ( ";
+
+	$queryAllRequest .= " lower(i.title) like '%" . strtolower($_GET['query']) . "%'";
+	$queryAllRequest .= " or lower(p.name) like '%" . strtolower($_GET['query']) . "%'";
+	$queryAllRequest .= " or lower(u.name) like '%" . strtolower($_GET['query']) . "%'";
+	$queryAllRequest .= " or i.id in (select m.info_request_id from incoming_messages m 
+			      where lower(m.cached_attachment_text_clipped) like '%".strtolower($_GET['query'])."%'
+			      or lower(m.cached_main_body_text_folded) like '%".strtolower($_GET['query'])."%'
+			      or lower(m.cached_main_body_text_unfolded) like '%".strtolower($_GET['query'])."%'
+			      or lower(m.subject) like '%".strtolower($_GET['query'])."%'	
+			      )";
+	$queryAllRequest .= " or i.id in (select m.info_request_id from outgoing_messages m 
+			      where lower(m.body) like '%".strtolower($_GET['query'])."%'
+			      )";
+	$queryAllRequest .= " or i.id in (select c.info_request_id from comments c 
+			      where lower(c.body) like '%".strtolower($_GET['query'])."%'
+>>>>>>> 2968c3d0c96ca93ece4f26ca2cf05448e2859a5e
 			      )";
 
 	$queryAllRequest .= " ) ";
@@ -84,11 +107,17 @@
     }
 
     $queryAllRequest .= ";";
+<<<<<<< HEAD
     //echo $queryAllRequest;
     $result = pg_query($queryAllRequest) or die('Query failed: ' . pg_last_error());
     $resultArray = pg_fetch_all($result);
     $resultHeaders = array("ID solicitud", "Título", "Fecha de creación", "Última actualización", "Estado actual", "Última respuesta pública", 
 			   "Solicitado por", "Organismo", "URL");
+=======
+    $result = pg_query($queryAllRequest) or die('Query failed: ' . pg_last_error());
+    $resultArray = pg_fetch_all($result);
+    $resultHeaders = array("ID solicitud", "Título", "Fecha de creación", "Última actualización", "Estado actual", "Última respuesta pública", "Solicitado por", 						"Organismo");
+>>>>>>> 2968c3d0c96ca93ece4f26ca2cf05448e2859a5e
     pg_free_result($result);
     pg_close($dbconn);
 

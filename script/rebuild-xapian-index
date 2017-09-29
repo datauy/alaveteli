@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 
 cd `dirname $0`
 bundle exec rake --silent "$@" xapian:rebuild_index models="PublicBody User InfoRequestEvent"

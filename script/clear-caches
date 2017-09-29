@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 TOP_DIR="$(dirname "$BASH_SOURCE")/.."
 cd "$TOP_DIR"
 # Clear the cache of attachment and body text.

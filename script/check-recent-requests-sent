@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 TOP_DIR="$(dirname "$BASH_SOURCE")/.."
 cd "$TOP_DIR"
 bundle exec rails runner 'MailServerLog.check_recent_requests_have_been_sent'

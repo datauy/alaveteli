@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 
 # Wire this script to receive incoming email for request responses.
 

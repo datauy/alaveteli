@@ -1,4 +1,5 @@
 #!/bin/bash
+source /etc/profile.d/rvm.sh
 
 # Fill in all the database caches of text from body/attachments.
 # Will take a while to run! Can use after clear-caches to refresh the database
